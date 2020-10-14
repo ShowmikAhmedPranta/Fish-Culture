@@ -61,8 +61,9 @@ def create_bar(annual_values, annual_names):
 
 
 
-def user_input():
-    print("""
+def user_input(pvalue=60):
+    aa=""""""
+    aa=aa+"""
 -------------------------------------------------------------------------
 Pabda Fish Fry Culture Cost Estimation
 A project by
@@ -70,57 +71,59 @@ Showmik Ahmed Pranta
 showmikahmedpranta@gmail.com
 Data and literary support:
 Md. Anisur Rahman
-anisurheds@gmail.com""")
-    land=float(input("Enter the area of pond with land border in Decimal: "))
-    n=float(input("Enter the area of your pond water area in Decimal:  "))
+anisurheds@gmail.com"""
+    #print(aa)
+    n=int(pvalue)
     first=pond_first_time(n)
     annual=pond_annual_time(n)
     first_time_cost=0
     annual_time_cost=0
     for j in first.values():
         first_time_cost=first_time_cost+j
-    print("\nFirst time cost: ")
+    aa=aa+"\nFirst time cost: \n"
     for i,j in first.items():
-        print(i,'-------------->',int(j))
-    print("Total first time cost = ---------------------------- --------------",int(first_time_cost))
+        aa=aa+"\n"+str(i)+'-------------->'+str(int(j))
+    aa=aa+"\nTotal first time cost = ---------------------------- --------------"+str(int(first_time_cost))
 
     annual_names=[]
     annual_values=[]
     for j in annual.values():
         annual_time_cost=annual_time_cost+j
-    print("\nAnnual cost ")
+    aa=aa+"\nAnnual cost \n"
     for i,j in annual.items():
         annual_names.append(i)
         annual_values.append(int(j))
-        print(i,'---------------->',int(j))
-    print("\nTotal annual cost excluding first time cost = ---- ----------------",int(annual_time_cost))
+        aa=aa+"\n"+str(i)+'---------------->'+str(int(j))
+    aa=aa+"\nTotal annual cost excluding first time cost = ---- ----------------"+str(int(annual_time_cost))
 
-    print("\nTotal cost first year = ---- --------------------------------------",int(first_time_cost+annual_time_cost))
+    aa=aa+"\nTotal cost first year = ---- --------------------------------------"+str(int(first_time_cost+annual_time_cost))
     income_list=income(n)
     inco=0
     for j in income_list.values():
         inco=inco+j
-    print("\nIncome list:")
+    aa=aa+"\nIncome list:"
     for i,j in income_list.items():
-        print(i,'---------------->',int(j))
-    print("\nannual income = ---------------------------------- ----------------",int(inco))
+        aa=aa+"\n"+str(i)+'---------------->'+str(int(j))
+    aa=aa+"\nannual income = ---------------------------------- ----------------"+str(int(inco))
 
-    print("\n**********************")
-    print("\nBeginning year profit:")
+    aa=aa+"\n**********************"
+    aa=aa+"\nBeginning year profit:"
     profit_beginning=inco-(first_time_cost+annual_time_cost)
     profit_percentage_beginning=(profit_beginning*100)/(first_time_cost+annual_time_cost)
-    print("Profit beginning= --------------------------------- ---------------", int(profit_beginning))
-    print("Profit percentage in the first year =   ---------- ----------------",int(profit_percentage_beginning))
-    print("************************************")
+    aa=aa+"\nProfit beginning= --------------------------------- ---------------"+str(int(profit_beginning))
+    aa=aa+"\nProfit percentage in the first year =   ---------- ----------------"+str(int(profit_percentage_beginning))
+    aa=aa+"\n************************************"
     profit_second_year=inco-(annual_time_cost)
     profit_percentage_second_year=(profit_second_year*100)/annual_time_cost
-    print("Profit second year onward yearly =   ------------- ----------------",int(profit_second_year))
-    print("Profit percentage in the second year =   --------- ----------------", int(profit_percentage_second_year))
+    aa=aa+"\nProfit second year onward yearly =   ------------- ----------------"+str(int(profit_second_year))
+    aa=aa+"\nProfit percentage in the second year =   --------- ----------------"+str(int(profit_percentage_second_year))
     create_bar(annual_values, annual_names)
+    return aa
 
 
 
 
 if(__name__=='__main__'):
     user_input()
+
 
